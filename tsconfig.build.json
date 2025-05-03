@@ -6,7 +6,7 @@
     "rootDir": "./dist/src",
     "paths": {
       "mcptest/*": ["dist/src/*"],
-      "mcptest": ["dist/src/index.ts"],
+      "mcptest": ["dist/src/index.ts"]
     },
     "noEmit": false,
     "declaration": true,
