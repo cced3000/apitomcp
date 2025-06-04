@@ -29,11 +29,7 @@ const client = new Mcptest({
   apiKey: process.env['MCPTEST_API_KEY'], // This is the default and can be omitted
 });
 
-async function main() {
-  await client.search({ q: 'REPLACE_ME' });
-}
-
-main();
+await client.search({ q: 'REPLACE_ME' });
 ```
 
 ### Request & Response types
@@ -48,12 +44,8 @@ const client = new Mcptest({
   apiKey: process.env['MCPTEST_API_KEY'], // This is the default and can be omitted
 });
 
-async function main() {
-  const params: Mcptest.SearchParams = { q: 'REPLACE_ME' };
-  await client.search(params);
-}
-
-main();
+const params: Mcptest.SearchParams = { q: 'REPLACE_ME' };
+await client.search(params);
 ```
 
 Documentation for each method, request param, and response field are available in docstrings and will appear on hover in most modern editors.
@@ -66,19 +58,15 @@ a subclass of `APIError` will be thrown:
 
 <!-- prettier-ignore -->
 ```ts
-async function main() {
-  const response = await client.search({ q: 'REPLACE_ME' }).catch(async (err) => {
-    if (err instanceof Mcptest.APIError) {
-      console.log(err.status); // 400
-      console.log(err.name); // BadRequestError
-      console.log(err.headers); // {server: 'nginx', ...}
-    } else {
-      throw err;
-    }
-  });
-}
-
-main();
+const response = await client.search({ q: 'REPLACE_ME' }).catch(async (err) => {
+  if (err instanceof Mcptest.APIError) {
+    console.log(err.status); // 400
+    console.log(err.name); // BadRequestError
+    console.log(err.headers); // {server: 'nginx', ...}
+  } else {
+    throw err;
+  }
+});
 ```
 
 Error codes are as follows:
