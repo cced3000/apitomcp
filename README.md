@@ -1,6 +1,6 @@
 # Mcptest TypeScript API Library
 
-[![NPM version](https://img.shields.io/npm/v/mcptest.svg)](https://npmjs.org/package/mcptest) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/mcptest)
+[![NPM version](<https://img.shields.io/npm/v/mcptest.svg?label=npm%20(stable)>)](https://npmjs.org/package/mcptest) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/mcptest)
 
 This library provides convenient access to the Mcptest REST API from server-side TypeScript or JavaScript.
 
