@@ -1,6 +1,6 @@
 # Mcptest TypeScript API Library
 
-[![NPM version](https://img.shields.io/npm/v/mcptest.svg)](https://npmjs.org/package/mcptest) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/mcptest)
+[![NPM version](<https://img.shields.io/npm/v/mcptest.svg?label=npm%20(stable)>)](https://npmjs.org/package/mcptest) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/mcptest)
 
 This library provides convenient access to the Mcptest REST API from server-side TypeScript or JavaScript.
 
@@ -11,11 +11,11 @@ It is generated with [Stainless](https://www.stainless.com/).
 ## Installation
 
 ```sh
-npm install git+ssh://git@github.com:stainless-sdks/mcptest-typescript.git
+npm install git+ssh://git@github.com:cced3000/apitomcp.git
 ```
 
 > [!NOTE]
-> Once this package is [published to npm](https://app.stainless.com/docs/guides/publish), this will become: `npm install mcptest`
+> Once this package is [published to npm](https://www.stainless.com/docs/guides/publish), this will become: `npm install mcptest`
 
 ## Usage
 
@@ -29,11 +29,7 @@ const client = new Mcptest({
   apiKey: process.env['MCPTEST_API_KEY'], // This is the default and can be omitted
 });
 
-async function main() {
-  await client.search({ q: 'REPLACE_ME' });
-}
-
-main();
+await client.search({ q: 'REPLACE_ME' });
 ```
 
 ### Request & Response types
@@ -48,12 +44,8 @@ const client = new Mcptest({
   apiKey: process.env['MCPTEST_API_KEY'], // This is the default and can be omitted
 });
 
-async function main() {
-  const params: Mcptest.SearchParams = { q: 'REPLACE_ME' };
-  await client.search(params);
-}
-
-main();
+const params: Mcptest.SearchParams = { q: 'REPLACE_ME' };
+await client.search(params);
 ```
 
 Documentation for each method, request param, and response field are available in docstrings and will appear on hover in most modern editors.
@@ -66,22 +58,18 @@ a subclass of `APIError` will be thrown:
 
 <!-- prettier-ignore -->
 ```ts
-async function main() {
-  const response = await client.search({ q: 'REPLACE_ME' }).catch(async (err) => {
-    if (err instanceof Mcptest.APIError) {
-      console.log(err.status); // 400
-      console.log(err.name); // BadRequestError
-      console.log(err.headers); // {server: 'nginx', ...}
-    } else {
-      throw err;
-    }
-  });
-}
-
-main();
+const response = await client.search({ q: 'REPLACE_ME' }).catch(async (err) => {
+  if (err instanceof Mcptest.APIError) {
+    console.log(err.status); // 400
+    console.log(err.name); // BadRequestError
+    console.log(err.headers); // {server: 'nginx', ...}
+  } else {
+    throw err;
+  }
+});
 ```
 
-Error codes are as followed:
+Error codes are as follows:
 
 | Status Code | Error Type                 |
 | ----------- | -------------------------- |
@@ -236,9 +224,8 @@ parameter. This library doesn't validate at runtime that the request matches the
 send will be sent as-is.
 
 ```ts
-client.foo.create({
-  foo: 'my_param',
-  bar: 12,
+client.search({
+  // ...
   // @ts-expect-error baz is not yet public
   baz: 'undocumented option',
 });
@@ -347,7 +334,7 @@ This package generally follows [SemVer](https://semver.org/spec/v2.0.0.html) con
 
 We take backwards-compatibility seriously and work hard to ensure you can rely on a smooth upgrade experience.
 
-We are keen for your feedback; please open an [issue](https://www.github.com/stainless-sdks/mcptest-typescript/issues) with questions, bugs, or suggestions.
+We are keen for your feedback; please open an [issue](https://www.github.com/cced3000/apitomcp/issues) with questions, bugs, or suggestions.
 
 ## Requirements
 
@@ -356,7 +343,7 @@ TypeScript >= 4.9 is supported.
 The following runtimes are supported:
 
 - Web browsers (Up-to-date Chrome, Firefox, Safari, Edge, and more)
-- Node.js 18 LTS or later ([non-EOL](https://endoflife.date/nodejs)) versions.
+- Node.js 20 LTS or later ([non-EOL](https://endoflife.date/nodejs)) versions.
 - Deno v1.28.0 or higher.
 - Bun 1.0 or later.
 - Cloudflare Workers.
