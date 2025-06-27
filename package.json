@@ -1,6 +1,6 @@
 {
   "name": "mcptest",
-  "version": "0.0.1-alpha.0",
+  "version": "0.1.0-alpha.1",
   "description": "The official TypeScript library for the Mcptest API",
   "author": "Mcptest <>",
   "types": "dist/index.d.ts",
